@@ -1,14 +1,12 @@
 import java.util.Scanner;
 class Calculator
 {
-      public static void main(Stirng[] args)
+      public static void main(String[] args)
       {
              Scanner sc=new Scanner(System.in);
-             int n;
-             int temp;
              System.out.println("You can do operation in the calculator \n If you want to exit the program enter the ENTER Button!!!");
              int i=1;
-             int temp;
+             int temp=0;
              while(true)
              {
                          char c;int n,t;
@@ -53,4 +51,5 @@ class Calculator
                           else
                                 break;
                 }
+      }
 }
