@@ -1,55 +1,54 @@
-import java.util.Scanner;
-class Calculator
-{
-      public static void main(String[] args)
-      {
-             Scanner sc=new Scanner(System.in);
-             System.out.println("You can do operation in the calculator \n If you want to exit the program enter the ENTER Button!!!");
-             int i=1;
-             int temp=0;
-             while(true)
-             {
-                         char c;int n,t;
-                         if(i==1)
-                         {
-                              n=sc.nextInt();
-                              c=sc.next().charAt(0);
-                              temp=sc.nextInt();
-                         }
-                         else
-                         {
-                              c=sc.next().charAt(0);
-                              n=sc.nextInt();
-                         }
-                         t=temp;
-                         switch(c)
-                         {
-                                case '+':
-                                         temp=n+temp;
-                                         break;
-                                case '-':
-                                         temp=n-temp;
-                                         break;
-                                case '*':
-                                         temp=n*temp;
-                                         break;
-                                case '/':
-                                         temp=n/temp;
-                                         break;
-                                case '%':
-                                         temp=n%temp;
-                                         break;
-                                default:
-                                         break;
-                          }
-                          char ch='=';
-                          System.out.println(n+c+t+ch+temp);
-                          char c1;
-                          c1=sc.next().charAt(0);
-                          if(c1=='+'||c1=='-'||c1=='*'||c1=='/'||c1=='%')
-                                continue;
-                          else
-                                break;
-                }
-      }
-}
+# 🧮 Command-Line Calculator in Java
+
+## 🚀 Overview
+This is a simple command-line calculator built using Java that performs basic arithmetic operations. It allows users to chain calculations interactively until they decide to quit.
+
+## 📌 Features
+- Addition (`+`)
+- Subtraction (`-`)
+- Multiplication (`*`)
+- Division (`/`)
+- Modulo (`%`)
+- Expression display with intermediate result
+- Graceful exit using the `q` key
+
+## 💻 How It Works
+- Users input numbers and operators one by one.
+- The calculator maintains the result and updates it after each operation.
+- Pressing `=` shows the current calculation and result.
+- Enter `q` after `=` to quit or continue with another operator.
+
+## 📋 Sample Usage
+```plaintext
+Input: 10 + 5 =  
+Output: 10+5 = 15  
+Input: - 3 =  
+Output: 15-3 = 12  
+Input: q  
+Program exits.
+```
+
+## 🧠 Notes
+- The program uses Java's `Scanner` class to read user inputs.
+- Any unexpected character after `=` will terminate the session with an error message.
+
+## 🛠 How to Run
+1. Save the code in a file named `Calculator.java`
+2. Open terminal and compile:
+   ```bash
+   javac Calculator.java
+   ```
+3. Run the program:
+   ```bash
+   java Calculator
+   ```
+
+## 📞 Contact
+Created by Hemanth. Feel free to reach out for collaboration or enhancements!
+
+---
+
+Happy coding 💻✨
+```
+
+Let me know if you'd like it customized further — maybe add emojis, diagrams, or even turn this into a GUI version!
