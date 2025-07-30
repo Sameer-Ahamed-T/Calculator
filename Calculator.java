@@ -3,4 +3,73 @@ class Calculator
 {
         public static void main(String[] args)
         {
-                Scanner sc=new Scanner(System.in); System.out.println("You can do operation in the calculator \n If you want to exit the program enter the ENTER Button!!!"); int i=1; int temp=0; while(true) { char c;int n,t; if(i==1) { n=sc.nextInt(); c=sc.next().charAt(0); temp=sc.nextInt(); } else { c=sc.next().charAt(0); n=sc.nextInt(); } t=temp; switch(c) { case '+': temp=n+temp; break; case '-': temp=n-temp; break; case '': temp=ntemp; break; case '/': temp=n/temp; break; case '%': temp=n%temp; break; default: break; } char ch='='; System.out.println(n+c+t+ch+temp); char c1; c1=sc.next().charAt(0); if(c1=='+'||c1=='-'||c1=='*'||c1=='/'||c1=='%') continue; else break; } } }
+                Scanner sc=new Scanner(System.in); 
+                System.out.println("You can do operation in the calculator \nIf you want to exit the program enter the q Button!!!"); 
+                int i=1;
+                int temp=0; 
+							  char c='+';int n;
+                 while(true) 
+                 { 
+                   if(i==1)
+                   {
+                           n=sc.nextInt(); 
+                           c=sc.next().charAt(0); 
+                           temp=sc.nextInt();
+										 			 i++;
+                   } 
+                   else
+										        n=sc.nextInt();
+                   int t=temp;
+                   switch(c)
+                   { 
+                           case '+':
+                                   temp=n+temp; 
+                                   break;
+                           case '-': 
+                                   temp=n-temp;
+                                   break;
+                           case '*':
+                                   temp=n*temp;
+                                   break;
+                           case '/': 
+                                   temp=n/temp; 
+                                   break; 
+                           case '%': 
+                                   temp=n%temp; 
+                                   break; 
+                           default: 
+                                   break;
+                   } 
+                   char ch;
+                   ch=sc.next().charAt(0);
+									 if(ch=='=')
+									 {
+										 			System.out.println(""+  n + c + t +"="+temp);
+										 			char e;
+										 			e=sc.next().charAt(0);
+										 			if(e=='q')
+											 						 break;
+										 			else if(e=='+'||e=='-'||e=='*'||e=='/'||e=='%')
+													{
+																	c=e;	
+											 						continue;
+													}
+										 			else
+										 			{
+											 					  System.out.println("Sorry!!!You Entered a unexpected input.");
+											 						break;
+										 			}
+									 }
+									 else if(ch=='+'||ch=='-'||ch=='*'||ch=='/'||ch=='%')
+									 {
+										 							c=ch;
+										 							continue;
+									 }
+									 else
+									 {
+										 							System.out.println("Sorry!!!You Entered a unexpected input.");
+										 							break;
+									 }
+                 }
+        } 
+}
