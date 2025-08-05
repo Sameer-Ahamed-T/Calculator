@@ -44,7 +44,7 @@ Program exits.
    ```
 
 ## 📞 Contact
-Created by Hemanth. Feel free to reach out for collaboration or enhancements!
+Created by Sameer Ahamed. Feel free to reach out for collaboration or enhancements!
 
 ---
 
