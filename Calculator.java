@@ -1,75 +1,70 @@
-import java.util.Scanner; 
-class Calculator 
-{
-        public static void main(String[] args)
-        {
-                Scanner sc=new Scanner(System.in); 
-                System.out.println("You can do operation in the calculator \nIf you want to exit the program enter the q Button!!!"); 
-                int i=1;
-                int temp=0; 
-				char c='+';int n;
-                 while(true) 
-                 { 
-                   if(i==1)
-                   {
-                           n=sc.nextInt(); 
-                           c=sc.next().charAt(0); 
-                           temp=sc.nextInt();
-						   i++;
-                   } 
-                   else
-							n=sc.nextInt();
-                   int t=temp;
-                   switch(c)
-                   { 
-                           case '+':
-                                   temp=n+temp; 
-                                   break;
-                           case '-': 
-                                   temp=n-temp;
-                                   break;
-                           case '*':
-                                   temp=n*temp;
-                                   break;
-                           case '/': 
-                                   temp=n/temp; 
-                                   break; 
-                           case '%': 
-                                   temp=n%temp; 
-                                   break; 
-                           default: 
-                                   break;
-                   } 
-                   char ch;
-                   ch=sc.next().charAt(0);
-					if(ch=='=')
-					{
-							System.out.println(""+  n + c + t +"="+temp);
-							char e;
-							e=sc.next().charAt(0);
-							if(e=='q')
-								break;
-							else if(e=='+'||e=='-'||e=='*'||e=='/'||e=='%')
-							{
-								c=e;	
-								continue;
-							}
-							else
-							{
-								System.out.println("Sorry!!!You Entered a unexpected input.");
-								break;
-							}
-					}
-					else if(ch=='+'||ch=='-'||ch=='*'||ch=='/'||ch=='%')
-					{
-							c=ch;
-							continue;
-					}
-					else
-					{
-							System.out.println("Sorry!!!You Entered a unexpected input.");
-							break;
-					}
-                 }
-        } 
+import java.util.Scanner;
+
+class Calculator {
+
+    public static int calculate(int a, int b, char op) {
+        switch (op) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': 
+                if (b == 0) {
+                    System.out.println("Error: Division by zero!");
+                    return a; 
+                }
+                return a / b;
+            case '%':
+                if (b == 0) {
+                    System.out.println("Error: Modulo by zero!");
+                    return a;
+                }
+                return a % b;
+            default:
+                System.out.println("Invalid operator!");
+                return a;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int result = 0;
+        boolean firstInput = true;
+
+        System.out.println("🧮 Intelligent Calculator");
+        System.out.println("You can use operators: +, -, *, /, %");
+        System.out.println("Type 'q' anytime to quit.");
+
+        while (true) {
+            try {
+                int num;
+                if (firstInput) {
+                    System.out.print("Enter first number: ");
+                    num = sc.nextInt();
+                    result = num;
+                    firstInput = false;
+                }
+
+                System.out.print("Enter operator (+ - * / %), or 'q' to quit: ");
+                String opInput = sc.next();
+                if (opInput.equalsIgnoreCase("q")) break;
+
+                char op = opInput.charAt(0);
+
+                System.out.print("Enter next number: ");
+                int nextNum = sc.nextInt();
+
+                int oldResult = result;
+                result = calculate(result, nextNum, op);
+
+                System.out.println(oldResult + " " + op + " " + nextNum + " = " + result);
+            } 
+            catch (Exception e) {
+                System.out.println("Invalid input! Please try again.");
+                sc.nextLine(); 
+            }
+        }
+
+        System.out.println("Calculator exited. Final result = " + result);
+        sc.close();
+    }
 }
